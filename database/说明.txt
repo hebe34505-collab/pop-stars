@@ -1,0 +1,11 @@
+数据库名：pop_stars
+
+主要的表：
+- user_account：注册用户。password 只存加密密码，token 是登录令牌
+- level_config：10 个关卡。target_score 是这一关要新得到的分数，实际过关线还要加上上一关结算分
+- game_score：登录玩家的每局成绩。后一关的起始分，取上一关最近一次胜利的分数
+- notice：公告
+- service_message：玩家发给客服的留言和管理员回复
+- friendship：好友申请。PENDING 是待同意，ACCEPTED 是已经是好友
+
+建表脚本是 schema.sql。后端启动时也会自动创建这些表，并补齐还没有的关卡。已经存在的关卡不会被覆盖。
